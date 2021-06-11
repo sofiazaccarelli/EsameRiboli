@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="9d199ae4-e019-4faf-adf7-3ebc8529b783">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="quad_curve1">
+        <node name="copy1" position="3.00,2.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="10"/>
+            <port name="order" type="string" value="rtr"/>
+            <port name="translate" type="point" value="100.00,45.00"/>
+            <port name="rotate" type="float" value="-35.0"/>
+            <port name="scale" type="point" value="90.00,90.00"/>
+        </node>
+        <node name="ellipse1" position="3.00,-1.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="70.0"/>
+            <port name="height" type="float" value="70.0"/>
+        </node>
+        <node name="frame1" position="4.00,0.00" prototype="core.frame"/>
+        <node name="frame2" position="4.00,5.00" prototype="core.frame"/>
+        <node name="group1" position="3.00,3.00" prototype="corevector.group"/>
+        <node name="line1" position="3.00,4.00" prototype="corevector.line">
+            <port name="point2" type="point" value="0.00,0.00"/>
+        </node>
+        <node name="negate1" position="4.00,1.00" prototype="math.negate"/>
+        <node name="negate2" position="4.00,6.00" prototype="math.negate"/>
+        <node name="quad_curve1" position="3.00,8.00" prototype="corevector.quad_curve">
+            <port name="point2" type="point" value="-298.00,0.00"/>
+            <port name="t" type="float" value="35.0"/>
+            <port name="distance" type="float" value="320.0"/>
+        </node>
+        <node name="rotate1" position="3.00,7.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="100.0"/>
+            <port name="origin" type="point" value="-250.00,0.00"/>
+        </node>
+        <conn input="copy1.shape" output="ellipse1"/>
+        <conn input="group1.shapes" output="copy1"/>
+        <conn input="line1.point1" output="group1"/>
+        <conn input="quad_curve1.point1" output="line1"/>
+        <conn input="rotate1.shape" output="line1"/>
+        <conn input="quad_curve1.point2" output="rotate1"/>
+        <conn input="negate1.value" output="frame1"/>
+        <conn input="copy1.rotate" output="negate1"/>
+        <conn input="negate2.value" output="frame2"/>
+        <conn input="rotate1.angle" output="negate2"/>
+    </node>
+</ndbx>

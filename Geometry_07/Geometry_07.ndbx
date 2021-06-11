@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="91257c87-7bd2-4122-bd87-cc8eff879900">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="divide1" position="9.00,6.00" prototype="math.divide">
+            <port name="value2" type="float" value="5.0"/>
+        </node>
+        <node name="ellipse1" position="3.00,3.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="70.0"/>
+            <port name="height" type="float" value="70.0"/>
+        </node>
+        <node name="frame1" position="9.00,5.00" prototype="core.frame"/>
+        <node name="group1" position="3.00,4.00" prototype="corevector.group"/>
+        <node name="null1" position="3.00,11.00" prototype="corevector.null"/>
+        <node name="point1" position="3.00,6.00" prototype="corevector.point"/>
+        <node name="range1" position="9.00,8.00" prototype="math.range">
+            <port name="start" type="float" value="-5.0"/>
+            <port name="end" type="float" value="15.0"/>
+        </node>
+        <node name="rect1" position="3.00,2.00" prototype="corevector.rect">
+            <port name="width" type="float" value="480.0"/>
+            <port name="height" type="float" value="330.0"/>
+            <port name="roundness" type="point" value="95.00,95.00"/>
+        </node>
+        <node name="resample1" position="3.00,5.00" prototype="corevector.resample">
+            <port name="length" type="float" value="15.0"/>
+        </node>
+        <node name="rotate1" position="3.00,10.00" prototype="corevector.rotate"/>
+        <node name="wiggle1" position="3.00,8.00" prototype="corevector.wiggle">
+            <port name="offset" type="point" value="-150.00,0.00"/>
+        </node>
+        <conn input="group1.shapes" output="ellipse1"/>
+        <conn input="resample1.shape" output="group1"/>
+        <conn input="point1.value" output="resample1"/>
+        <conn input="wiggle1.shape" output="point1"/>
+        <conn input="rotate1.shape" output="wiggle1"/>
+        <conn input="rotate1.angle" output="range1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="ellipse1.position" output="rect1"/>
+        <conn input="null1.shape" output="rotate1"/>
+        <conn input="wiggle1.seed" output="divide1"/>
+    </node>
+</ndbx>

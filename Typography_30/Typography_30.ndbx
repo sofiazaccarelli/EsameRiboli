@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="a2876fde-7183-4d73-94f5-e2cf0900c67b">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="add1" position="3.00,-1.00" prototype="math.add"/>
+        <node name="add2" position="-4.00,-1.00" prototype="math.add"/>
+        <node name="add3" position="10.00,-1.00" prototype="math.add"/>
+        <node name="add4" position="17.00,-1.00" prototype="math.add"/>
+        <node name="align1" position="8.00,13.00" prototype="corevector.align"/>
+        <node name="colorize1" position="-4.00,8.00" prototype="corevector.colorize"/>
+        <node name="colorize2" position="4.00,8.00" prototype="corevector.colorize"/>
+        <node name="colorize3" position="11.00,8.00" prototype="corevector.colorize"/>
+        <node name="colorize4" position="18.00,8.00" prototype="corevector.colorize"/>
+        <node name="combine1" position="8.00,11.00" prototype="list.combine"/>
+        <node name="frame1" position="2.00,-2.00" prototype="core.frame"/>
+        <node name="frame2" position="-5.00,-2.00" prototype="core.frame"/>
+        <node name="frame3" position="9.00,-2.00" prototype="core.frame"/>
+        <node name="frame4" position="16.00,-2.00" prototype="core.frame"/>
+        <node name="group1" position="8.00,12.00" prototype="corevector.group"/>
+        <node name="hsb_color1" position="-4.00,7.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="60.0"/>
+            <port name="saturation" type="float" value="255.0"/>
+            <port name="brightness" type="float" value="230.0"/>
+            <port name="alpha" type="float" value="30.0"/>
+        </node>
+        <node name="hsb_color2" position="4.00,7.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="100.0"/>
+            <port name="saturation" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="80.0"/>
+        </node>
+        <node name="hsb_color3" position="11.00,7.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="60.0"/>
+            <port name="saturation" type="float" value="255.0"/>
+            <port name="brightness" type="float" value="230.0"/>
+            <port name="alpha" type="float" value="30.0"/>
+        </node>
+        <node name="hsb_color4" position="18.00,7.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="100.0"/>
+            <port name="saturation" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="80.0"/>
+        </node>
+        <node name="make_point1" position="4.00,2.00" prototype="corevector.make_point"/>
+        <node name="make_point2" position="-4.00,2.00" prototype="corevector.make_point"/>
+        <node name="make_point3" position="11.00,2.00" prototype="corevector.make_point"/>
+        <node name="make_point4" position="18.00,2.00" prototype="corevector.make_point"/>
+        <node name="range1" position="5.00,-2.00" prototype="math.range">
+            <port name="end" type="float" value="15.0"/>
+        </node>
+        <node name="range2" position="-2.00,-2.00" prototype="math.range">
+            <port name="end" type="float" value="80.0"/>
+        </node>
+        <node name="range3" position="12.00,-2.00" prototype="math.range">
+            <port name="end" type="float" value="80.0"/>
+        </node>
+        <node name="range4" position="19.00,-2.00" prototype="math.range">
+            <port name="end" type="float" value="15.0"/>
+        </node>
+        <node name="textpath1" position="4.00,4.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="UP"/>
+            <port name="font_size" type="float" value="45.0"/>
+        </node>
+        <node name="textpath2" position="-4.00,4.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="TEXT"/>
+            <port name="font_size" type="float" value="45.0"/>
+        </node>
+        <node name="textpath3" position="11.00,4.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="AND"/>
+            <port name="font_size" type="float" value="45.0"/>
+        </node>
+        <node name="textpath4" position="18.00,4.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="DOWN"/>
+            <port name="font_size" type="float" value="45.0"/>
+        </node>
+        <node name="translate1" position="-4.00,5.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="-110.00,0.00"/>
+        </node>
+        <node name="translate2" position="11.00,5.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="100.00,0.00"/>
+        </node>
+        <node name="translate3" position="18.00,5.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="240.00,0.00"/>
+        </node>
+        <node name="wave1" position="3.00,0.00" prototype="math.wave">
+            <port name="min" type="float" value="-160.0"/>
+            <port name="max" type="float" value="160.0"/>
+            <port name="period" type="float" value="160.0"/>
+        </node>
+        <node name="wave2" position="-4.00,0.00" prototype="math.wave">
+            <port name="min" type="float" value="80.0"/>
+            <port name="max" type="float" value="-80.0"/>
+            <port name="period" type="float" value="160.0"/>
+        </node>
+        <node name="wave3" position="10.00,0.00" prototype="math.wave">
+            <port name="min" type="float" value="80.0"/>
+            <port name="max" type="float" value="-80.0"/>
+            <port name="period" type="float" value="160.0"/>
+        </node>
+        <node name="wave4" position="17.00,0.00" prototype="math.wave">
+            <port name="min" type="float" value="-160.0"/>
+            <port name="max" type="float" value="160.0"/>
+            <port name="period" type="float" value="160.0"/>
+        </node>
+        <conn input="add1.value1" output="frame1"/>
+        <conn input="wave1.offset" output="add1"/>
+        <conn input="make_point1.y" output="wave1"/>
+        <conn input="add1.value2" output="range1"/>
+        <conn input="textpath1.position" output="make_point1"/>
+        <conn input="add2.value1" output="frame2"/>
+        <conn input="wave2.offset" output="add2"/>
+        <conn input="make_point2.y" output="wave2"/>
+        <conn input="add2.value2" output="range2"/>
+        <conn input="textpath2.position" output="make_point2"/>
+        <conn input="translate1.shape" output="textpath2"/>
+        <conn input="colorize1.shape" output="translate1"/>
+        <conn input="colorize1.fill" output="hsb_color1"/>
+        <conn input="combine1.list2" output="colorize1"/>
+        <conn input="colorize2.fill" output="hsb_color2"/>
+        <conn input="colorize2.shape" output="textpath1"/>
+        <conn input="combine1.list1" output="colorize2"/>
+        <conn input="add3.value1" output="frame3"/>
+        <conn input="wave3.offset" output="add3"/>
+        <conn input="make_point3.y" output="wave3"/>
+        <conn input="add3.value2" output="range3"/>
+        <conn input="textpath3.position" output="make_point3"/>
+        <conn input="colorize3.fill" output="hsb_color3"/>
+        <conn input="combine1.list3" output="colorize3"/>
+        <conn input="translate2.shape" output="textpath3"/>
+        <conn input="colorize3.shape" output="translate2"/>
+        <conn input="add4.value1" output="frame4"/>
+        <conn input="wave4.offset" output="add4"/>
+        <conn input="make_point4.y" output="wave4"/>
+        <conn input="add4.value2" output="range4"/>
+        <conn input="textpath4.position" output="make_point4"/>
+        <conn input="colorize4.fill" output="hsb_color4"/>
+        <conn input="translate3.shape" output="textpath4"/>
+        <conn input="colorize4.shape" output="translate3"/>
+        <conn input="combine1.list4" output="colorize4"/>
+        <conn input="group1.shapes" output="combine1"/>
+        <conn input="align1.shape" output="group1"/>
+    </node>
+</ndbx>

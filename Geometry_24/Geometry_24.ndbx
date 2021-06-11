@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="21d433ef-2ad2-4511-860b-8bdb558a5393">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="colorize1">
+        <node name="align1" position="-4.00,12.00" prototype="corevector.align"/>
+        <node name="colorize1" position="-4.00,14.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="2.0"/>
+        </node>
+        <node name="combine1" position="-7.00,7.00" prototype="list.combine"/>
+        <node name="compound1" position="-4.00,11.00" prototype="corevector.compound"/>
+        <node name="copy1" position="-7.00,4.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="2"/>
+            <port name="translate" type="point" value="0.00,-1380.00"/>
+        </node>
+        <node name="network1" position="-6.00,2.00" prototype="core.network" renderedChild="compound1">
+            <node name="add5" position="-8.00,-4.00" prototype="math.add">
+                <port name="value2" type="float" value="4.75"/>
+            </node>
+            <node name="add9" position="-1.00,-4.00" prototype="math.add">
+                <port name="value2" type="float" value="4.75"/>
+            </node>
+            <node name="combine1" position="-13.00,-2.00" prototype="list.combine"/>
+            <node name="combine7" position="-4.00,-2.00" prototype="list.combine"/>
+            <node name="compound1" position="-6.00,2.00" prototype="corevector.compound"/>
+            <node name="frame5" position="-8.00,-5.00" prototype="core.frame"/>
+            <node name="frame8" position="-1.00,-5.00" prototype="core.frame"/>
+            <node name="link1" position="-10.00,0.00" prototype="corevector.link">
+                <port name="orientation" type="string" value="vertical"/>
+            </node>
+            <node name="link5" position="-3.00,0.00" prototype="corevector.link">
+                <port name="orientation" type="string" value="vertical"/>
+            </node>
+            <node name="rect1" position="-12.00,-5.00" prototype="corevector.rect">
+                <port name="position" type="point" value="0.00,400.00"/>
+            </node>
+            <node name="rect14" position="-4.00,-4.00" prototype="corevector.rect"/>
+            <node name="rect2" position="-11.00,-4.00" prototype="corevector.rect">
+                <port name="position" type="point" value="0.00,200.00"/>
+            </node>
+            <node name="stack1" position="-8.00,-1.00" prototype="corevector.stack">
+                <port name="direction" type="string" value="w"/>
+                <port name="margin" type="float" value="133.0"/>
+            </node>
+            <node name="stack5" position="-1.00,-1.00" prototype="corevector.stack">
+                <port name="direction" type="string" value="w"/>
+                <port name="margin" type="float" value="133.0"/>
+            </node>
+            <node name="wave5" position="-8.00,-3.00" prototype="math.wave">
+                <port name="min" type="float" value="-260.0"/>
+                <port name="max" type="float" value="130.0"/>
+                <port name="period" type="float" value="200.0"/>
+            </node>
+            <node name="wave8" position="-1.00,-3.00" prototype="math.wave">
+                <port name="min" type="float" value="-260.0"/>
+                <port name="max" type="float" value="130.0"/>
+                <port name="period" type="float" value="200.0"/>
+            </node>
+            <conn input="combine1.list2" output="rect2"/>
+            <conn input="combine1.list1" output="rect1"/>
+            <conn input="link1.shape2" output="stack1"/>
+            <conn input="add5.value1" output="frame5"/>
+            <conn input="wave5.offset" output="add5"/>
+            <conn input="stack1.margin" output="wave5"/>
+            <conn input="link1.shape1" output="rect2"/>
+            <conn input="stack5.shapes" output="combine7"/>
+            <conn input="link5.shape2" output="stack5"/>
+            <conn input="add9.value1" output="frame8"/>
+            <conn input="wave8.offset" output="add9"/>
+            <conn input="stack5.margin" output="wave8"/>
+            <conn input="combine7.list1" output="rect14"/>
+            <conn input="link5.shape1" output="rect14"/>
+            <conn input="compound1.shape1" output="link1"/>
+            <conn input="compound1.shape2" output="link5"/>
+            <conn input="combine7.list2" output="rect2"/>
+            <conn input="stack1.shapes" output="combine1"/>
+        </node>
+        <node name="reflect1" position="-4.00,4.00" prototype="corevector.reflect">
+            <port name="angle" type="float" value="90.0"/>
+            <port name="keep_original" type="boolean" value="false"/>
+        </node>
+        <node name="reflect3" position="-7.00,8.00" prototype="corevector.reflect">
+            <port name="position" type="point" value="10.00,-170.00"/>
+            <port name="angle" type="float" value="-45.0"/>
+        </node>
+        <node name="reflect4" position="-2.00,8.00" prototype="corevector.reflect">
+            <port name="angle" type="float" value="45.0"/>
+            <port name="keep_original" type="boolean" value="false"/>
+        </node>
+        <node name="scale1" position="-4.00,5.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="100.00,300.00"/>
+        </node>
+        <node name="scale2" position="-4.00,13.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="20.00,20.00"/>
+        </node>
+        <node name="translate1" position="-4.00,3.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="0.00,-330.00"/>
+        </node>
+        <node name="translate3" position="-2.00,9.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="1600.00,-1700.00"/>
+        </node>
+        <conn input="copy1.shape" output="network1"/>
+        <conn input="combine1.list1" output="copy1"/>
+        <conn input="translate1.shape" output="network1"/>
+        <conn input="reflect1.shape" output="translate1"/>
+        <conn input="scale1.shape" output="reflect1"/>
+        <conn input="combine1.list2" output="scale1"/>
+        <conn input="reflect3.shape" output="combine1"/>
+        <conn input="reflect4.shape" output="reflect3"/>
+        <conn input="translate3.shape" output="reflect4"/>
+        <conn input="compound1.shape1" output="reflect3"/>
+        <conn input="compound1.shape2" output="translate3"/>
+        <conn input="align1.shape" output="compound1"/>
+        <conn input="scale2.shape" output="align1"/>
+        <conn input="colorize1.shape" output="scale2"/>
+    </node>
+</ndbx>

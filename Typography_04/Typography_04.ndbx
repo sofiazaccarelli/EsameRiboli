@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="ef3fafdf-a67e-4f24-ae7e-92e85a122677">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="copy1" position="2.00,9.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="3"/>
+            <port name="order" type="string" value="srt"/>
+            <port name="translate" type="point" value="0.00,6.00"/>
+            <port name="rotate" type="float" value="5.0"/>
+            <port name="scale" type="point" value="100.00,90.00"/>
+        </node>
+        <node name="divide1" position="6.00,3.00" prototype="math.divide">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="frame1" position="6.00,1.00" prototype="core.frame"/>
+        <node name="negate1" position="6.00,2.00" prototype="math.negate"/>
+        <node name="network1" position="2.00,5.00" prototype="core.network" renderedChild="quad_curve1">
+            <node name="import_svg1" position="-3.00,-1.00" prototype="corevector.import_svg">
+                <port name="file" type="string" value="Typography_04_E.svg"/>
+            </node>
+            <node name="point1" position="-3.00,1.00" prototype="corevector.point"/>
+            <node name="quad_curve1" position="-3.00,5.00" prototype="corevector.quad_curve">
+                <port name="t" type="float" value="150.0"/>
+                <port name="distance" type="float" value="12.0"/>
+            </node>
+            <node name="range1" position="2.00,1.00" prototype="math.range">
+                <port name="start" type="float" value="-10.0"/>
+                <port name="end" type="float" value="30.0"/>
+                <port name="step" type="float" value="3.0"/>
+            </node>
+            <node name="resample1" position="-3.00,0.00" prototype="corevector.resample"/>
+            <node name="shift1" position="-2.00,3.00" prototype="list.shift"/>
+            <node name="wave1" position="2.00,3.00" prototype="math.wave">
+                <port name="min" type="float" value="325.0"/>
+                <port name="max" type="float" value="60.0"/>
+                <port name="type" type="string" value="triangle"/>
+            </node>
+            <port childReference="import_svg1.position" description="The target position of the shape." label="" name="position" range="value" type="point" value="0.00,0.00" widget="point"/>
+            <port childReference="wave1.offset" description="" label="" name="offset" range="value" type="float" value="0.0" widget="float"/>
+            <conn input="resample1.shape" output="import_svg1"/>
+            <conn input="point1.value" output="resample1"/>
+            <conn input="quad_curve1.point1" output="point1"/>
+            <conn input="shift1.list" output="point1"/>
+            <conn input="quad_curve1.point2" output="shift1"/>
+            <conn input="wave1.max" output="range1"/>
+            <conn input="quad_curve1.t" output="wave1"/>
+        </node>
+        <node name="null1" position="2.00,10.00" prototype="corevector.null"/>
+        <node name="range1" position="6.00,6.00" prototype="math.range">
+            <port name="start" type="float" value="-8.0"/>
+            <port name="end" type="float" value="8.0"/>
+        </node>
+        <node name="rotate1" position="2.00,8.00" prototype="corevector.rotate"/>
+        <node name="scale1" position="2.00,6.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="300.00,300.00"/>
+        </node>
+        <conn input="negate1.value" output="frame1"/>
+        <conn input="divide1.value1" output="negate1"/>
+        <conn input="network1.offset" output="divide1"/>
+        <conn input="scale1.shape" output="network1"/>
+        <conn input="rotate1.shape" output="scale1"/>
+        <conn input="rotate1.angle" output="range1"/>
+        <conn input="copy1.shape" output="rotate1"/>
+        <conn input="null1.shape" output="copy1"/>
+    </node>
+</ndbx>

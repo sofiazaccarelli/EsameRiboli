@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="91257c87-7bd2-4122-bd87-cc8eff879900">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="colorize1" position="3.00,6.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#ff005846"/>
+        </node>
+        <node name="divide1" position="8.00,1.00" prototype="math.divide">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="frame1" position="8.00,0.00" prototype="core.frame"/>
+        <node name="null1" position="3.00,9.00" prototype="corevector.null"/>
+        <node name="rect1" position="3.00,5.00" prototype="corevector.rect">
+            <port name="width" type="float" value="6.0"/>
+            <port name="height" type="float" value="25.0"/>
+            <port name="roundness" type="point" value="4.00,4.00"/>
+        </node>
+        <node name="scale1" position="3.00,7.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="400.00,400.00"/>
+            <port name="origin" type="point" value="0.00,-65.00"/>
+        </node>
+        <node name="scatter1" position="3.00,4.00" prototype="corevector.scatter">
+            <port name="amount" type="int" value="130"/>
+            <port name="seed" type="int" value="5"/>
+        </node>
+        <node name="snap1" position="3.00,8.00" prototype="corevector.snap">
+            <port name="distance" type="float" value="21.0"/>
+        </node>
+        <node name="textpath1" position="3.00,2.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="A"/>
+            <port name="font_name" type="string" value="Baskerville"/>
+            <port name="font_size" type="float" value="200.0"/>
+        </node>
+        <node name="wave1" position="8.00,2.00" prototype="math.wave">
+            <port name="min" type="float" value="10.0"/>
+            <port name="max" type="float" value="65.0"/>
+            <port name="type" type="string" value="sawtooth"/>
+        </node>
+        <conn input="scatter1.shape" output="textpath1"/>
+        <conn input="rect1.position" output="scatter1"/>
+        <conn input="colorize1.shape" output="rect1"/>
+        <conn input="scale1.shape" output="colorize1"/>
+        <conn input="snap1.shape" output="scale1"/>
+        <conn input="scatter1.seed" output="wave1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="wave1.offset" output="divide1"/>
+        <conn input="null1.shape" output="snap1"/>
+    </node>
+</ndbx>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="f4cdf7ab-5dd4-4947-bede-65b04765051c">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="compound1" position="3.00,4.00" prototype="corevector.compound">
+            <port name="function" type="string" value="subtracted"/>
+        </node>
+        <node name="copy1" position="3.00,5.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="4"/>
+            <port name="order" type="string" value="rtr"/>
+            <port name="rotate" type="float" value="30.0"/>
+        </node>
+        <node name="divide1" position="7.00,5.00" prototype="math.divide">
+            <port name="value2" type="float" value="3.0"/>
+        </node>
+        <node name="ellipse1" position="7.00,2.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="160.0"/>
+            <port name="height" type="float" value="130.0"/>
+        </node>
+        <node name="fit1" position="3.00,6.00" prototype="corevector.fit"/>
+        <node name="frame1" position="7.00,4.00" prototype="core.frame"/>
+        <node name="null1" position="3.00,10.00" prototype="corevector.null"/>
+        <node name="polygon1" position="3.00,2.00" prototype="corevector.polygon">
+            <port name="sides" type="int" value="4"/>
+        </node>
+        <node name="scale1" position="3.00,9.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="180.00,180.00"/>
+        </node>
+        <node name="snap1" position="3.00,8.00" prototype="corevector.snap">
+            <port name="distance" type="float" value="89.0"/>
+        </node>
+        <node name="wave1" position="7.00,6.00" prototype="math.wave">
+            <port name="max" type="float" value="145.0"/>
+            <port name="period" type="float" value="100.0"/>
+            <port name="type" type="string" value="sawtooth"/>
+        </node>
+        <conn input="compound1.shape1" output="polygon1"/>
+        <conn input="fit1.shape" output="copy1"/>
+        <conn input="compound1.shape2" output="ellipse1"/>
+        <conn input="copy1.shape" output="compound1"/>
+        <conn input="snap1.shape" output="fit1"/>
+        <conn input="snap1.distance" output="wave1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="wave1.offset" output="divide1"/>
+        <conn input="scale1.shape" output="snap1"/>
+        <conn input="null1.shape" output="scale1"/>
+    </node>
+</ndbx>

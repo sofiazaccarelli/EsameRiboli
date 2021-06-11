@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="550f3398-6d97-4224-898a-a8e425c01383">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="textpath1">
+        <node name="divide1" position="-1.00,2.00" prototype="math.divide">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="divide2" position="7.00,3.00" prototype="math.divide">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="ellipse1" position="3.00,2.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="500.0"/>
+            <port name="height" type="float" value="500.0"/>
+        </node>
+        <node name="frame1" position="-1.00,1.00" prototype="core.frame"/>
+        <node name="frame2" position="7.00,2.00" prototype="core.frame"/>
+        <node name="group1" position="3.00,3.00" prototype="corevector.group"/>
+        <node name="random_character1" position="-1.00,3.00" prototype="string.random_character">
+            <port name="amount" type="int" value="5"/>
+        </node>
+        <node name="rect1" position="3.00,1.00" prototype="corevector.rect">
+            <port name="width" type="float" value="310.0"/>
+            <port name="height" type="float" value="310.0"/>
+            <port name="roundness" type="point" value="95.00,95.00"/>
+        </node>
+        <node name="textpath1" position="3.00,7.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="e"/>
+        </node>
+        <node name="wiggle1" position="3.00,5.00" prototype="corevector.wiggle">
+            <port name="offset" type="point" value="20.00,20.00"/>
+            <port name="seed" type="int" value="26"/>
+        </node>
+        <conn input="ellipse1.position" output="rect1"/>
+        <conn input="group1.shapes" output="ellipse1"/>
+        <conn input="textpath1.text" output="random_character1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="random_character1.seed" output="divide1"/>
+        <conn input="wiggle1.shape" output="group1"/>
+        <conn input="textpath1.position" output="wiggle1"/>
+        <conn input="divide2.value1" output="frame2"/>
+        <conn input="wiggle1.seed" output="divide2"/>
+    </node>
+</ndbx>

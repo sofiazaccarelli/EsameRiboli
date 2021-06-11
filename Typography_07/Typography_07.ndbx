@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="33aeacdf-d051-418f-bbd4-6e1d4706d79e">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="copy1" position="1.00,5.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="43"/>
+            <port name="translate" type="point" value="15.00,15.00"/>
+            <port name="rotate" type="float" value="15.0"/>
+        </node>
+        <node name="frame1" position="5.00,1.00" prototype="core.frame"/>
+        <node name="multiply1" position="5.00,2.00" prototype="math.multiply">
+            <port name="value2" type="float" value="1.5"/>
+        </node>
+        <node name="null1" position="1.00,7.00" prototype="corevector.null"/>
+        <node name="rotate1" position="1.00,4.00" prototype="corevector.rotate"/>
+        <node name="textpath1" position="1.00,2.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="eeeeeeeee"/>
+            <port name="font_size" type="float" value="21.0"/>
+            <port name="position" type="point" value="40.00,0.00"/>
+        </node>
+        <node name="translate1" position="1.00,6.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="-300.00,-300.00"/>
+        </node>
+        <conn input="copy1.shape" output="rotate1"/>
+        <conn input="rotate1.shape" output="textpath1"/>
+        <conn input="translate1.shape" output="copy1"/>
+        <conn input="multiply1.value1" output="frame1"/>
+        <conn input="rotate1.angle" output="multiply1"/>
+        <conn input="null1.shape" output="translate1"/>
+    </node>
+</ndbx>

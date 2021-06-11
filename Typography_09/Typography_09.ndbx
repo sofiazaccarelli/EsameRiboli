@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="8767a5dd-3c78-4202-a5df-af471defcee7">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="colorize1" position="2.00,8.00" prototype="corevector.colorize"/>
+        <node name="combine1" position="7.00,6.00" prototype="list.combine"/>
+        <node name="divide1" position="6.00,-1.00" prototype="math.divide">
+            <port name="value2" type="float" value="5.0"/>
+        </node>
+        <node name="ellipse1" position="2.00,4.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="7.0"/>
+        </node>
+        <node name="frame1" position="6.00,-2.00" prototype="core.frame"/>
+        <node name="hsb_color1" position="7.00,4.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="120.0"/>
+            <port name="saturation" type="float" value="255.0"/>
+            <port name="brightness" type="float" value="180.0"/>
+            <port name="alpha" type="float" value="110.0"/>
+        </node>
+        <node name="hsb_color2" position="10.00,4.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="118.0"/>
+            <port name="saturation" type="float" value="255.0"/>
+            <port name="brightness" type="float" value="200.0"/>
+            <port name="alpha" type="float" value="110.0"/>
+            <port name="range" type="float" value="215.0"/>
+        </node>
+        <node name="hsb_color3" position="13.00,4.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="120.0"/>
+            <port name="saturation" type="float" value="255.0"/>
+            <port name="brightness" type="float" value="180.0"/>
+            <port name="alpha" type="float" value="110.0"/>
+            <port name="range" type="float" value="185.0"/>
+        </node>
+        <node name="null1" position="2.00,10.00" prototype="corevector.null"/>
+        <node name="range1" position="10.00,0.00" prototype="math.range">
+            <port name="start" type="float" value="4.0"/>
+            <port name="end" type="float" value="20.0"/>
+            <port name="step" type="float" value="4.0"/>
+        </node>
+        <node name="range2" position="13.00,0.00" prototype="math.range">
+            <port name="start" type="float" value="4.0"/>
+            <port name="end" type="float" value="20.0"/>
+            <port name="step" type="float" value="4.0"/>
+        </node>
+        <node name="scale1" position="2.00,9.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="500.00,500.00"/>
+            <port name="origin" type="point" value="10.00,-65.00"/>
+        </node>
+        <node name="scatter1" position="2.00,2.00" prototype="corevector.scatter">
+            <port name="amount" type="int" value="145"/>
+        </node>
+        <node name="textpath1" position="2.00,0.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="e"/>
+            <port name="font_name" type="string" value="Didot"/>
+            <port name="font_size" type="float" value="240.0"/>
+        </node>
+        <node name="wave1" position="6.00,0.00" prototype="math.wave">
+            <port name="max" type="float" value="116.0"/>
+            <port name="period" type="float" value="120.0"/>
+            <port name="type" type="string" value="sawtooth"/>
+        </node>
+        <conn input="scatter1.shape" output="textpath1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="wave1.offset" output="divide1"/>
+        <conn input="ellipse1.position" output="scatter1"/>
+        <conn input="colorize1.shape" output="ellipse1"/>
+        <conn input="scatter1.seed" output="wave1"/>
+        <conn input="ellipse1.height" output="range1"/>
+        <conn input="ellipse1.width" output="range2"/>
+        <conn input="combine1.list1" output="hsb_color1"/>
+        <conn input="colorize1.fill" output="combine1"/>
+        <conn input="combine1.list2" output="hsb_color2"/>
+        <conn input="combine1.list3" output="hsb_color3"/>
+        <conn input="scale1.shape" output="colorize1"/>
+        <conn input="null1.shape" output="scale1"/>
+    </node>
+</ndbx>

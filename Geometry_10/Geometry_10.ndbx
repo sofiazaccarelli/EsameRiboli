@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="1986bc91-da75-4c12-9e2c-7c20721ef23c">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="colorize1">
+        <node name="colorize1" position="-2.00,8.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="compound1" position="-2.00,2.00" prototype="corevector.compound"/>
+        <node name="hsb_color1" position="2.00,6.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="80.0"/>
+            <port name="saturation" type="float" value="125.0"/>
+            <port name="brightness" type="float" value="125.0"/>
+            <port name="range" type="float" value="125.0"/>
+        </node>
+        <node name="line1" position="-2.00,4.00" prototype="corevector.line">
+            <port name="point2" type="point" value="100.00,0.00"/>
+        </node>
+        <node name="polygon1" position="-2.00,0.00" prototype="corevector.polygon">
+            <port name="position" type="point" value="-200.00,0.00"/>
+            <port name="radius" type="float" value="180.0"/>
+            <port name="sides" type="int" value="7"/>
+        </node>
+        <node name="polygon2" position="2.00,0.00" prototype="corevector.polygon">
+            <port name="position" type="point" value="300.00,0.00"/>
+            <port name="radius" type="float" value="120.0"/>
+        </node>
+        <node name="range1" position="2.00,5.00" prototype="math.range">
+            <port name="end" type="float" value="180.0"/>
+        </node>
+        <node name="resample1" position="-2.00,3.00" prototype="corevector.resample">
+            <port name="length" type="float" value="7.0"/>
+        </node>
+        <node name="rotate1" position="-2.00,5.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="90.0"/>
+        </node>
+        <conn input="compound1.shape1" output="polygon1"/>
+        <conn input="resample1.shape" output="compound1"/>
+        <conn input="line1.point1" output="resample1"/>
+        <conn input="colorize1.stroke" output="hsb_color1"/>
+        <conn input="compound1.shape2" output="polygon2"/>
+        <conn input="rotate1.shape" output="line1"/>
+        <conn input="colorize1.shape" output="rotate1"/>
+        <conn input="hsb_color1.hue" output="range1"/>
+    </node>
+</ndbx>

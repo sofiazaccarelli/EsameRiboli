@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="c879be95-f184-4f85-aa89-9969773c4e8a">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="colorize1">
+        <node name="colorize1" position="4.00,19.00" prototype="corevector.colorize">
+            <port name="stroke" type="color" value="#ffffffff"/>
+        </node>
+        <node name="combine1" position="8.00,17.00" prototype="list.combine"/>
+        <node name="network1" position="4.00,13.00" prototype="core.network" renderedChild="rotate1">
+            <node name="add1" position="4.00,5.00" prototype="math.add">
+                <port name="value2" type="float" value="2.0"/>
+            </node>
+            <node name="cos1" position="4.00,7.00" prototype="math.cos"/>
+            <node name="divide1" position="4.00,9.00" prototype="math.divide"/>
+            <node name="ellipse1" position="0.00,7.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="120.0"/>
+                <port name="height" type="float" value="300.0"/>
+            </node>
+            <node name="frame1" position="4.00,4.00" prototype="core.frame"/>
+            <node name="grid1" position="0.00,5.00" prototype="corevector.grid">
+                <port name="columns" type="int" value="1"/>
+                <port name="rows" type="int" value="3"/>
+                <port name="width" type="float" value="10.0"/>
+                <port name="height" type="float" value="350.0"/>
+                <port name="position" type="point" value="0.00,300.00"/>
+            </node>
+            <node name="range1" position="4.00,8.00" prototype="math.range">
+                <port name="start" type="float" value="5.0"/>
+                <port name="end" type="float" value="110.0"/>
+                <port name="step" type="float" value="5.0"/>
+            </node>
+            <node name="rotate1" position="0.00,11.00" prototype="corevector.rotate">
+                <port name="angle" type="float" value="145.0"/>
+                <port name="origin" type="point" value="-180.00,0.00"/>
+            </node>
+            <node name="text_on_path1" position="0.00,8.00" prototype="corevector.text_on_path">
+                <port name="text" type="string" value="0101010101010"/>
+                <port name="font_size" type="float" value="21.0"/>
+                <port name="alignment" type="string" value="trailing"/>
+                <port name="baseline_offset" type="float" value="100.0"/>
+            </node>
+            <conn input="rotate1.shape" output="text_on_path1"/>
+            <conn input="divide1.value1" output="range1"/>
+            <conn input="rotate1.angle" output="divide1"/>
+            <conn input="ellipse1.position" output="grid1"/>
+            <conn input="text_on_path1.path" output="ellipse1"/>
+            <conn input="add1.value1" output="frame1"/>
+            <conn input="ellipse1.height" output="add1"/>
+            <conn input="range1.start" output="cos1"/>
+        </node>
+        <node name="reflect1" position="4.00,14.00" prototype="corevector.reflect">
+            <port name="position" type="point" value="175.00,0.00"/>
+            <port name="angle" type="float" value="-180.0"/>
+        </node>
+        <node name="rgb_color1" position="8.00,16.00" prototype="color.rgb_color">
+            <port name="blue" type="float" value="255.0"/>
+        </node>
+        <node name="rgb_color2" position="11.00,16.00" prototype="color.rgb_color">
+            <port name="red" type="float" value="255.0"/>
+        </node>
+        <node name="rgb_color3" position="14.00,16.00" prototype="color.rgb_color">
+            <port name="red" type="float" value="90.0"/>
+            <port name="green" type="float" value="90.0"/>
+            <port name="blue" type="float" value="90.0"/>
+        </node>
+        <node name="rotate1" position="4.00,15.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="-90.0"/>
+        </node>
+        <conn input="reflect1.shape" output="network1"/>
+        <conn input="colorize1.fill" output="combine1"/>
+        <conn input="combine1.list1" output="rgb_color1"/>
+        <conn input="combine1.list2" output="rgb_color2"/>
+        <conn input="rotate1.shape" output="reflect1"/>
+        <conn input="colorize1.shape" output="rotate1"/>
+        <conn input="combine1.list3" output="rgb_color3"/>
+    </node>
+</ndbx>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="606a4d9b-2f09-4588-8582-d4caba2b2e31">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="compound1" position="2.00,2.00" prototype="corevector.compound"/>
+        <node name="divide1" position="6.00,3.00" prototype="math.divide">
+            <port name="value2" type="float" value="3.0"/>
+        </node>
+        <node name="divide2" position="6.00,6.00" prototype="math.divide">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="ellipse1" position="2.00,0.00" prototype="corevector.ellipse">
+            <port name="position" type="point" value="-100.00,-130.00"/>
+            <port name="width" type="float" value="540.0"/>
+            <port name="height" type="float" value="200.0"/>
+        </node>
+        <node name="ellipse2" position="5.00,0.00" prototype="corevector.ellipse">
+            <port name="position" type="point" value="-35.00,0.00"/>
+            <port name="width" type="float" value="300.0"/>
+            <port name="height" type="float" value="560.0"/>
+        </node>
+        <node name="frame1" position="6.00,2.00" prototype="core.frame"/>
+        <node name="frame2" position="6.00,5.00" prototype="core.frame"/>
+        <node name="null1" position="2.00,14.00" prototype="corevector.null"/>
+        <node name="point1" position="2.00,9.00" prototype="corevector.point"/>
+        <node name="range1" position="6.00,10.00" prototype="math.range">
+            <port name="end" type="float" value="50.0"/>
+        </node>
+        <node name="resample1" position="2.00,6.00" prototype="corevector.resample">
+            <port name="length" type="float" value="70.0"/>
+        </node>
+        <node name="rotate1" position="2.00,3.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="-40.0"/>
+        </node>
+        <node name="rotate2" position="2.00,13.00" prototype="corevector.rotate"/>
+        <node name="text_on_path1" position="2.00,5.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="typography"/>
+            <port name="font_size" type="float" value="60.0"/>
+        </node>
+        <node name="wave1" position="6.00,11.00" prototype="math.wave"/>
+        <node name="wiggle1" position="2.00,8.00" prototype="corevector.wiggle"/>
+        <conn input="resample1.shape" output="text_on_path1"/>
+        <conn input="compound1.shape1" output="ellipse1"/>
+        <conn input="compound1.shape2" output="ellipse2"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="text_on_path1.margin" output="divide1"/>
+        <conn input="wiggle1.shape" output="resample1"/>
+        <conn input="point1.value" output="wiggle1"/>
+        <conn input="divide2.value1" output="frame2"/>
+        <conn input="wiggle1.seed" output="divide2"/>
+        <conn input="rotate1.shape" output="compound1"/>
+        <conn input="text_on_path1.path" output="rotate1"/>
+        <conn input="rotate2.shape" output="point1"/>
+        <conn input="wave1.offset" output="range1"/>
+        <conn input="rotate2.angle" output="wave1"/>
+        <conn input="null1.shape" output="rotate2"/>
+    </node>
+</ndbx>

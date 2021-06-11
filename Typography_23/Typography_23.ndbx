@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="016c59b9-6c93-4df8-acb8-7c999d1e6c03">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="colorize1" position="13.00,11.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="2.0"/>
+        </node>
+        <node name="combine1" position="8.00,12.00" prototype="list.combine"/>
+        <node name="combine2" position="15.00,8.00" prototype="list.combine"/>
+        <node name="divide1" position="5.00,6.00" prototype="math.divide">
+            <port name="value2" type="float" value="3.0"/>
+        </node>
+        <node name="divide2" position="5.00,3.00" prototype="math.divide">
+            <port name="value2" type="float" value="3.0"/>
+        </node>
+        <node name="frame1" position="5.00,2.00" prototype="core.frame"/>
+        <node name="hsb_color8" position="15.00,10.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="205.0"/>
+            <port name="saturation" type="float" value="250.0"/>
+            <port name="brightness" type="float" value="230.0"/>
+            <port name="alpha" type="float" value="100.0"/>
+        </node>
+        <node name="line2" position="11.00,9.00" prototype="corevector.line">
+            <port name="point1" type="point" value="0.00,67.00"/>
+        </node>
+        <node name="number1" position="18.00,8.00" prototype="math.number">
+            <port name="value" type="float" value="130.0"/>
+        </node>
+        <node name="resample2" position="11.00,8.00" prototype="corevector.resample">
+            <port name="length" type="float" value="1.5"/>
+            <port name="points" type="int" value="141"/>
+        </node>
+        <node name="sample1" position="5.00,8.00" prototype="math.sample">
+            <port name="amount" type="int" value="1"/>
+            <port name="start" type="float" value="1.0"/>
+            <port name="end" type="float" value="2.0"/>
+        </node>
+        <node name="sample2" position="5.00,7.00" prototype="math.sample">
+            <port name="amount" type="int" value="1"/>
+            <port name="start" type="float" value="1.0"/>
+            <port name="end" type="float" value="68.0"/>
+        </node>
+        <node name="sample3" position="12.00,6.00" prototype="math.sample">
+            <port name="amount" type="int" value="1"/>
+            <port name="start" type="float" value="1.0"/>
+            <port name="end" type="float" value="2.0"/>
+        </node>
+        <node name="sample4" position="12.00,5.00" prototype="math.sample">
+            <port name="amount" type="int" value="1"/>
+            <port name="start" type="float" value="1.0"/>
+            <port name="end" type="float" value="68.0"/>
+        </node>
+        <node name="sample5" position="15.00,7.00" prototype="math.sample">
+            <port name="end" type="float" value="40.0"/>
+        </node>
+        <node name="sample6" position="15.00,6.00" prototype="math.sample">
+            <port name="amount" type="int" value="6"/>
+            <port name="start" type="float" value="255.0"/>
+            <port name="end" type="float" value="220.0"/>
+        </node>
+        <node name="scale1" position="11.00,10.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="400.00,400.00"/>
+            <port name="origin" type="point" value="0.00,-10.00"/>
+        </node>
+        <node name="snap1" position="4.00,10.00" prototype="corevector.snap">
+            <port name="distance" type="float" value="122.0"/>
+            <port name="strength" type="float" value="64.0"/>
+        </node>
+        <node name="snap2" position="11.00,7.00" prototype="corevector.snap">
+            <port name="distance" type="float" value="122.0"/>
+            <port name="strength" type="float" value="64.0"/>
+        </node>
+        <node name="string1" position="2.00,7.00" prototype="string.string">
+            <port name="value" type="string" value="change"/>
+        </node>
+        <node name="string2" position="9.00,5.00" prototype="string.string">
+            <port name="value" type="string" value="change"/>
+        </node>
+        <node name="textpath1" position="2.00,8.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="shine"/>
+            <port name="font_name" type="string" value="Neue Haas Grotesk Text Pro Bold"/>
+            <port name="font_size" type="float" value="60.0"/>
+        </node>
+        <node name="textpath2" position="9.00,6.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="shine"/>
+            <port name="font_name" type="string" value="Neue Haas Grotesk Text Pro Bold"/>
+            <port name="font_size" type="float" value="60.0"/>
+        </node>
+        <conn input="snap1.shape" output="textpath1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="snap1.distance" output="sample1"/>
+        <conn input="textpath1.text" output="string1"/>
+        <conn input="sample1.start" output="sample2"/>
+        <conn input="sample2.start" output="divide1"/>
+        <conn input="resample2.shape" output="snap2"/>
+        <conn input="line2.point2" output="resample2"/>
+        <conn input="snap2.shape" output="textpath2"/>
+        <conn input="divide2.value1" output="frame1"/>
+        <conn input="snap2.distance" output="sample3"/>
+        <conn input="textpath2.text" output="string2"/>
+        <conn input="sample3.start" output="sample4"/>
+        <conn input="sample4.start" output="divide2"/>
+        <conn input="scale1.shape" output="line2"/>
+        <conn input="combine1.list2" output="snap1"/>
+        <conn input="colorize1.shape" output="scale1"/>
+        <conn input="combine1.list1" output="colorize1"/>
+        <conn input="colorize1.stroke" output="hsb_color8"/>
+        <conn input="hsb_color8.saturation" output="number1"/>
+        <conn input="combine2.list2" output="sample6"/>
+        <conn input="combine2.list1" output="sample5"/>
+        <conn input="hsb_color8.hue" output="combine2"/>
+    </node>
+</ndbx>

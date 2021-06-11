@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="233de14e-c3e7-4626-984a-d9fc614ec51a">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="divide1" position="5.00,5.00" prototype="math.divide">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="frame1" position="5.00,-1.00" prototype="core.frame"/>
+        <node name="frame2" position="5.00,1.00" prototype="core.frame"/>
+        <node name="grid1" position="1.00,1.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="3"/>
+            <port name="rows" type="int" value="3"/>
+            <port name="width" type="float" value="400.0"/>
+            <port name="height" type="float" value="600.0"/>
+            <port name="position" type="point" value="-400.00,0.00"/>
+        </node>
+        <node name="null1" position="1.00,10.00" prototype="corevector.null"/>
+        <node name="range1" position="5.00,4.00" prototype="math.range">
+            <port name="end" type="float" value="700.0"/>
+            <port name="step" type="float" value="5.0"/>
+        </node>
+        <node name="scale1" position="1.00,7.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="60.00,60.00"/>
+        </node>
+        <node name="scale2" position="1.00,9.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="30.00,30.00"/>
+        </node>
+        <node name="star1" position="1.00,3.00" prototype="corevector.star">
+            <port name="points" type="int" value="5"/>
+            <port name="outer" type="float" value="100.0"/>
+            <port name="inner" type="float" value="30.0"/>
+        </node>
+        <node name="text_on_path1" position="1.00,4.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="efghijklmnopqrstuvwxyz"/>
+            <port name="font_size" type="float" value="21.0"/>
+            <port name="alignment" type="string" value="trailing"/>
+            <port name="margin" type="float" value="4.0"/>
+            <port name="baseline_offset" type="float" value="127.0"/>
+        </node>
+        <node name="translate1" position="1.00,8.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="900.00,0.00"/>
+        </node>
+        <conn input="star1.position" output="grid1"/>
+        <conn input="text_on_path1.path" output="star1"/>
+        <conn input="divide1.value1" output="range1"/>
+        <conn input="scale1.shape" output="text_on_path1"/>
+        <conn input="scale1.scale" output="divide1"/>
+        <conn input="translate1.shape" output="scale1"/>
+        <conn input="star1.inner" output="frame1"/>
+        <conn input="scale2.shape" output="translate1"/>
+        <conn input="null1.shape" output="scale2"/>
+        <conn input="text_on_path1.baseline_offset" output="frame2"/>
+    </node>
+</ndbx>

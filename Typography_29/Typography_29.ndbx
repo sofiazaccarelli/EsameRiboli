@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="a438e863-8734-4133-bf66-178f84efc2b4">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="colorize1">
+        <node name="add1" position="5.00,-1.00" prototype="math.add">
+            <port name="value2" type="float" value="44.0"/>
+        </node>
+        <node name="add2" position="14.00,-2.00" prototype="math.add">
+            <port name="value2" type="float" value="90.0"/>
+        </node>
+        <node name="colorize1" position="1.00,10.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#00000000"/>
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="combine2" position="11.00,-1.00" prototype="list.combine"/>
+        <node name="divide1" position="14.00,-1.00" prototype="math.divide">
+            <port name="value2" type="float" value="180.0"/>
+        </node>
+        <node name="ellipse1" position="1.00,3.00" prototype="corevector.ellipse">
+            <port name="height" type="float" value="23.0"/>
+        </node>
+        <node name="frame1" position="5.00,-2.00" prototype="core.frame"/>
+        <node name="frame2" position="14.00,-3.00" prototype="core.frame"/>
+        <node name="make_strings1" position="11.00,-2.00" prototype="string.make_strings">
+            <port name="string" type="string" value="T;U;W"/>
+        </node>
+        <node name="make_strings2" position="11.00,-3.00" prototype="string.make_strings">
+            <port name="string" type="string" value="V;X;Y"/>
+        </node>
+        <node name="pick1" position="12.00,1.00" prototype="list.pick">
+            <port name="amount" type="int" value="1"/>
+            <port name="seed" type="int" value="9"/>
+        </node>
+        <node name="point1" position="1.00,6.00" prototype="corevector.point"/>
+        <node name="point2" position="5.00,7.00" prototype="corevector.point"/>
+        <node name="quad_curve1" position="1.00,8.00" prototype="corevector.quad_curve">
+            <port name="t" type="float" value="41.0"/>
+            <port name="distance" type="float" value="-7.0"/>
+        </node>
+        <node name="resample1" position="5.00,4.00" prototype="corevector.resample">
+            <port name="length" type="float" value="4.0"/>
+            <port name="points" type="int" value="1"/>
+        </node>
+        <node name="resample2" position="1.00,4.00" prototype="corevector.resample">
+            <port name="points" type="int" value="1"/>
+        </node>
+        <node name="scale1" position="5.00,5.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="277.00,271.00"/>
+            <port name="origin" type="point" value="0.00,-4.00"/>
+        </node>
+        <node name="scale2" position="8.00,2.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="204.00,102.00"/>
+            <port name="origin" type="point" value="0.00,-12.00"/>
+        </node>
+        <node name="textpath2" position="5.00,3.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="V"/>
+            <port name="font_size" type="float" value="226.0"/>
+            <port name="position" type="point" value="2.00,-79.00"/>
+        </node>
+        <node name="wave1" position="5.00,0.00" prototype="math.wave">
+            <port name="min" type="float" value="1.0"/>
+            <port name="max" type="float" value="240.0"/>
+            <port name="period" type="float" value="180.0"/>
+            <port name="offset" type="float" value="45.0"/>
+            <port name="type" type="string" value="triangle"/>
+        </node>
+        <conn input="resample1.shape" output="textpath2"/>
+        <conn input="scale1.shape" output="resample1"/>
+        <conn input="scale2.shape" output="resample2"/>
+        <conn input="quad_curve1.point1" output="point1"/>
+        <conn input="point2.value" output="scale1"/>
+        <conn input="quad_curve1.point2" output="point2"/>
+        <conn input="resample2.shape" output="ellipse1"/>
+        <conn input="point1.value" output="resample2"/>
+        <conn input="add1.value1" output="frame1"/>
+        <conn input="textpath2.font_size" output="wave1"/>
+        <conn input="wave1.offset" output="add1"/>
+        <conn input="combine2.list2" output="make_strings1"/>
+        <conn input="combine2.list1" output="make_strings2"/>
+        <conn input="textpath2.text" output="pick1"/>
+        <conn input="pick1.seed" output="divide1"/>
+        <conn input="pick1.list" output="combine2"/>
+        <conn input="add2.value1" output="frame2"/>
+        <conn input="divide1.value1" output="add2"/>
+        <conn input="colorize1.shape" output="quad_curve1"/>
+    </node>
+</ndbx>

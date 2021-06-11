@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="c879be95-f184-4f85-aa89-9969773c4e8a">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="colorize1" position="3.00,3.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#005affff"/>
+        </node>
+        <node name="divide1" position="6.00,4.00" prototype="math.divide">
+            <port name="value2" type="float" value="3.0"/>
+        </node>
+        <node name="frame1" position="6.00,3.00" prototype="core.frame"/>
+        <node name="network1" position="3.00,1.00" prototype="core.network" renderedChild="rotate1">
+            <node name="ellipse1" position="0.00,6.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="150.0"/>
+                <port name="height" type="float" value="200.0"/>
+            </node>
+            <node name="frame1" position="3.00,6.00" prototype="core.frame"/>
+            <node name="range1" position="4.00,9.00" prototype="math.range">
+                <port name="start" type="float" value="-260.0"/>
+                <port name="end" type="float" value="100.0"/>
+                <port name="step" type="float" value="4.0"/>
+            </node>
+            <node name="rotate1" position="0.00,11.00" prototype="corevector.rotate">
+                <port name="angle" type="float" value="145.0"/>
+                <port name="origin" type="point" value="360.00,-50.00"/>
+            </node>
+            <node name="text_on_path1" position="0.00,8.00" prototype="corevector.text_on_path">
+                <port name="text" type="string" value="abcdefghijklmnopqrstu"/>
+                <port name="font_size" type="float" value="18.0"/>
+                <port name="margin" type="float" value="4.0"/>
+                <port name="baseline_offset" type="float" value="35.0"/>
+            </node>
+            <conn input="rotate1.shape" output="text_on_path1"/>
+            <conn input="rotate1.angle" output="range1"/>
+            <conn input="text_on_path1.margin" output="frame1"/>
+            <conn input="text_on_path1.path" output="ellipse1"/>
+        </node>
+        <node name="null1" position="3.00,6.00" prototype="corevector.null"/>
+        <node name="rotate1" position="3.00,5.00" prototype="corevector.rotate"/>
+        <node name="scale1" position="3.00,2.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="70.00,70.00"/>
+            <port name="origin" type="point" value="-855.00,120.00"/>
+        </node>
+        <conn input="scale1.shape" output="network1"/>
+        <conn input="colorize1.shape" output="scale1"/>
+        <conn input="rotate1.shape" output="colorize1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="rotate1.origin" output="divide1"/>
+        <conn input="null1.shape" output="rotate1"/>
+    </node>
+</ndbx>

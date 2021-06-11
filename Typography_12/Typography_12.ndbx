@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="258c7e7e-556e-4a33-bb9c-8732290e7de1">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="divide1" position="8.00,4.00" prototype="math.divide">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="divide2" position="8.00,1.00" prototype="math.divide">
+            <port name="value2" type="float" value="60.0"/>
+        </node>
+        <node name="frame1" position="8.00,3.00" prototype="core.frame"/>
+        <node name="frame2" position="8.00,0.00" prototype="core.frame"/>
+        <node name="grid1" position="3.00,1.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="2"/>
+            <port name="rows" type="int" value="3"/>
+            <port name="width" type="float" value="350.0"/>
+            <port name="height" type="float" value="430.0"/>
+            <port name="position" type="point" value="100.00,30.00"/>
+        </node>
+        <node name="negate1" position="8.00,5.00" prototype="math.negate"/>
+        <node name="null1" position="3.00,7.00" prototype="corevector.null"/>
+        <node name="range1" position="-1.00,1.00" prototype="math.range">
+            <port name="start" type="float" value="5.0"/>
+            <port name="end" type="float" value="50.0"/>
+            <port name="step" type="float" value="5.0"/>
+        </node>
+        <node name="shape" position="3.00,2.00" prototype="core.network" renderedChild="group1">
+            <node name="compound1" position="-1.00,-1.00" prototype="corevector.compound"/>
+            <node name="group1" position="-1.00,0.00" prototype="corevector.group"/>
+            <node name="star1" position="-1.00,-2.00" prototype="corevector.star">
+                <port name="position" type="point" value="-120.00,0.00"/>
+                <port name="points" type="int" value="5"/>
+                <port name="outer" type="float" value="280.0"/>
+                <port name="inner" type="float" value="200.0"/>
+            </node>
+            <node name="star2" position="2.00,-2.00" prototype="corevector.star">
+                <port name="position" type="point" value="90.00,0.00"/>
+                <port name="points" type="int" value="10"/>
+                <port name="outer" type="float" value="330.0"/>
+                <port name="inner" type="float" value="300.0"/>
+            </node>
+            <port childReference="star1.position" description="The center point of the star." label="" name="position" range="value" type="point" value="-106.00,0.00" widget="point"/>
+            <conn input="compound1.shape1" output="star1"/>
+            <conn input="compound1.shape2" output="star2"/>
+            <conn input="group1.shapes" output="compound1"/>
+        </node>
+        <node name="skew1" position="3.00,5.00" prototype="corevector.skew">
+            <port name="skew" type="point" value="35.00,-5.00"/>
+            <port name="origin" type="point" value="15.00,360.00"/>
+        </node>
+        <node name="text_on_path1" position="3.00,6.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="abcdefghijklmnopqrstuvwxyz"/>
+            <port name="font_size" type="float" value="21.0"/>
+            <port name="alignment" type="string" value="trailing"/>
+        </node>
+        <node name="wiggle1" position="3.00,3.00" prototype="corevector.wiggle">
+            <port name="offset" type="point" value="30.00,-30.00"/>
+        </node>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="negate1.value" output="divide1"/>
+        <conn input="text_on_path1.margin" output="negate1"/>
+        <conn input="text_on_path1.path" output="skew1"/>
+        <conn input="skew1.skew" output="range1"/>
+        <conn input="shape.position" output="grid1"/>
+        <conn input="wiggle1.shape" output="shape"/>
+        <conn input="skew1.shape" output="wiggle1"/>
+        <conn input="null1.shape" output="text_on_path1"/>
+        <conn input="divide2.value1" output="frame2"/>
+        <conn input="wiggle1.seed" output="divide2"/>
+    </node>
+</ndbx>

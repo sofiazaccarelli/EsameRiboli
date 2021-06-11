@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="74834edf-aa91-4cdc-a6b1-f8e0b57a17ef">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="textpath1">
+        <node name="divide1" position="-4.00,3.00" prototype="math.divide">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="ellipse1" position="-1.00,2.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="468.0"/>
+            <port name="height" type="float" value="926.0"/>
+        </node>
+        <node name="fit_to1" position="-1.00,5.00" prototype="corevector.fit_to">
+            <port name="keep_proportions" type="boolean" value="false"/>
+        </node>
+        <node name="frame1" position="-4.00,-1.00" prototype="core.frame"/>
+        <node name="frame2" position="-1.00,-1.00" prototype="core.frame"/>
+        <node name="frame3" position="-4.00,2.00" prototype="core.frame"/>
+        <node name="range1" position="0.00,7.00" prototype="math.range">
+            <port name="start" type="float" value="14.0"/>
+            <port name="end" type="float" value="24.0"/>
+        </node>
+        <node name="rotate1" position="-1.00,6.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="-30.0"/>
+        </node>
+        <node name="rotate2" position="-4.00,4.00" prototype="corevector.rotate"/>
+        <node name="star1" position="-7.00,3.00" prototype="corevector.star">
+            <port name="points" type="int" value="18"/>
+            <port name="outer" type="float" value="500.0"/>
+            <port name="inner" type="float" value="120.0"/>
+        </node>
+        <node name="textpath1" position="-1.00,8.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="Lorem ipsum dolor "/>
+            <port name="font_size" type="float" value="20.0"/>
+        </node>
+        <node name="wave1" position="-4.00,0.00" prototype="math.wave">
+            <port name="min" type="float" value="150.0"/>
+            <port name="max" type="float" value="800.0"/>
+            <port name="period" type="float" value="250.0"/>
+        </node>
+        <node name="wave2" position="-1.00,0.00" prototype="math.wave">
+            <port name="min" type="float" value="650.0"/>
+            <port name="max" type="float" value="1100.0"/>
+            <port name="period" type="float" value="250.0"/>
+        </node>
+        <conn input="fit_to1.bounding" output="ellipse1"/>
+        <conn input="rotate1.shape" output="fit_to1"/>
+        <conn input="textpath1.position" output="rotate1"/>
+        <conn input="wave1.offset" output="frame1"/>
+        <conn input="ellipse1.width" output="wave1"/>
+        <conn input="wave2.offset" output="frame2"/>
+        <conn input="ellipse1.height" output="wave2"/>
+        <conn input="textpath1.font_size" output="range1"/>
+        <conn input="divide1.value1" output="frame3"/>
+        <conn input="rotate2.angle" output="divide1"/>
+        <conn input="rotate2.shape" output="star1"/>
+        <conn input="fit_to1.shape" output="rotate2"/>
+    </node>
+</ndbx>

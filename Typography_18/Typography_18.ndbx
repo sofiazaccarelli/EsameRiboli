@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="85368434-57de-424b-a0f2-90696e340a72">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="add1" position="14.00,-3.00" prototype="math.add">
+            <port name="value2" type="float" value="40.0"/>
+        </node>
+        <node name="colorize2" position="13.00,10.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#e5002c27"/>
+            <port name="stroke" type="color" value="#ffffff00"/>
+        </node>
+        <node name="colorize4" position="9.00,10.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#e5002c27"/>
+            <port name="stroke" type="color" value="#ffffff00"/>
+        </node>
+        <node name="combine1" position="11.00,13.00" prototype="list.combine"/>
+        <node name="copy2" position="13.00,8.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="12"/>
+            <port name="rotate" type="float" value="2.0"/>
+        </node>
+        <node name="copy4" position="9.00,8.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="12"/>
+            <port name="rotate" type="float" value="2.0"/>
+        </node>
+        <node name="divide1" position="16.00,7.00" prototype="math.divide">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="divide2" position="11.00,-2.00" prototype="math.divide">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="divide5" position="3.00,7.00" prototype="math.divide">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="ellipse5" position="8.00,1.00" prototype="corevector.ellipse"/>
+        <node name="frame14" position="3.00,6.00" prototype="core.frame"/>
+        <node name="frame4" position="11.00,-3.00" prototype="core.frame"/>
+        <node name="frame5" position="16.00,6.00" prototype="core.frame"/>
+        <node name="frame6" position="8.00,-3.00" prototype="core.frame"/>
+        <node name="frame7" position="14.00,-2.00" prototype="core.frame"/>
+        <node name="hsb_color1" position="16.00,9.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="180.0"/>
+            <port name="saturation" type="float" value="15.0"/>
+            <port name="brightness" type="float" value="190.0"/>
+            <port name="range" type="float" value="170.0"/>
+        </node>
+        <node name="hsb_color3" position="6.00,9.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="180.0"/>
+            <port name="saturation" type="float" value="15.0"/>
+            <port name="brightness" type="float" value="190.0"/>
+            <port name="range" type="float" value="170.0"/>
+        </node>
+        <node name="multiply1" position="14.00,3.00" prototype="math.multiply">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="negate1" position="6.00,3.00" prototype="math.negate"/>
+        <node name="range10" position="9.00,7.00" prototype="math.range">
+            <port name="start" type="float" value="1.0"/>
+            <port name="step" type="float" value="10.0"/>
+        </node>
+        <node name="range5" position="8.00,-1.00" prototype="math.range">
+            <port name="start" type="float" value="-2.0"/>
+            <port name="end" type="float" value="30.0"/>
+            <port name="step" type="float" value="22.0"/>
+        </node>
+        <node name="range6" position="13.00,7.00" prototype="math.range">
+            <port name="start" type="float" value="1.0"/>
+            <port name="step" type="float" value="10.0"/>
+        </node>
+        <node name="reflect1" position="13.00,5.00" prototype="corevector.reflect">
+            <port name="position" type="point" value="60.00,0.00"/>
+            <port name="keep_original" type="boolean" value="false"/>
+        </node>
+        <node name="reflect2" position="9.00,5.00" prototype="corevector.reflect">
+            <port name="position" type="point" value="-60.00,0.00"/>
+            <port name="keep_original" type="boolean" value="false"/>
+        </node>
+        <node name="sample1" position="19.00,8.00" prototype="math.sample">
+            <port name="amount" type="int" value="5"/>
+            <port name="start" type="float" value="50.0"/>
+            <port name="end" type="float" value="200.0"/>
+        </node>
+        <node name="sample3" position="6.00,8.00" prototype="math.sample">
+            <port name="amount" type="int" value="5"/>
+            <port name="start" type="float" value="50.0"/>
+            <port name="end" type="float" value="200.0"/>
+        </node>
+        <node name="text_on_path3" position="10.00,3.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="typography is alive typography is alive typography is alive"/>
+            <port name="font_name" type="string" value="SansSerif.bold"/>
+            <port name="font_size" type="float" value="14.0"/>
+            <port name="margin" type="float" value="25.0"/>
+            <port name="baseline_offset" type="float" value="24.0"/>
+        </node>
+        <node name="wave1" position="16.00,8.00" prototype="math.wave">
+            <port name="min" type="float" value="20.0"/>
+            <port name="max" type="float" value="60.0"/>
+            <port name="period" type="float" value="180.0"/>
+        </node>
+        <node name="wave2" position="8.00,-2.00" prototype="math.wave">
+            <port name="min" type="float" value="-30.0"/>
+            <port name="max" type="float" value="30.0"/>
+            <port name="period" type="float" value="180.0"/>
+            <port name="offset" type="float" value="180.0"/>
+        </node>
+        <node name="wave3" position="14.00,-2.00" prototype="math.wave">
+            <port name="min" type="float" value="10.0"/>
+            <port name="period" type="float" value="360.0"/>
+        </node>
+        <node name="wave7" position="3.00,8.00" prototype="math.wave">
+            <port name="min" type="float" value="120.0"/>
+            <port name="max" type="float" value="180.0"/>
+            <port name="period" type="float" value="180.0"/>
+        </node>
+        <conn input="ellipse5.height" output="range5"/>
+        <conn input="colorize2.shape" output="copy2"/>
+        <conn input="copy2.scale" output="range6"/>
+        <conn input="colorize2.fill" output="hsb_color1"/>
+        <conn input="divide1.value1" output="frame5"/>
+        <conn input="wave1.offset" output="divide1"/>
+        <conn input="hsb_color1.saturation" output="sample1"/>
+        <conn input="ellipse5.width" output="range5"/>
+        <conn input="text_on_path3.path" output="ellipse5"/>
+        <conn input="ellipse5.position" output="wave2"/>
+        <conn input="wave2.offset" output="frame6"/>
+        <conn input="divide2.value1" output="frame4"/>
+        <conn input="text_on_path3.margin" output="divide2"/>
+        <conn input="hsb_color1.hue" output="wave1"/>
+        <conn input="reflect1.shape" output="text_on_path3"/>
+        <conn input="copy2.shape" output="reflect1"/>
+        <conn input="colorize4.shape" output="copy4"/>
+        <conn input="copy4.scale" output="range10"/>
+        <conn input="colorize4.fill" output="hsb_color3"/>
+        <conn input="divide5.value1" output="frame14"/>
+        <conn input="wave7.offset" output="divide5"/>
+        <conn input="hsb_color3.saturation" output="sample3"/>
+        <conn input="hsb_color3.hue" output="wave7"/>
+        <conn input="reflect2.shape" output="text_on_path3"/>
+        <conn input="copy4.shape" output="reflect2"/>
+        <conn input="combine1.list1" output="colorize4"/>
+        <conn input="text_on_path3.baseline_offset" output="wave3"/>
+        <conn input="add1.value1" output="frame7"/>
+        <conn input="wave3.offset" output="add1"/>
+        <conn input="negate1.value" output="wave2"/>
+        <conn input="reflect2.position" output="negate1"/>
+        <conn input="combine1.list2" output="colorize2"/>
+        <conn input="multiply1.value1" output="wave2"/>
+        <conn input="reflect1.position" output="multiply1"/>
+    </node>
+</ndbx>

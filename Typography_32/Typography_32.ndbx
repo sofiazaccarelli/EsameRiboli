@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="e1a33466-da81-4407-8f20-d5144588fe67">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="colorize1" position="1.00,6.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#00000000"/>
+            <port name="stroke" type="color" value="#00000000"/>
+        </node>
+        <node name="combine1" position="4.00,8.00" prototype="list.combine"/>
+        <node name="copy1" position="7.00,6.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="6"/>
+            <port name="scale" type="point" value="90.00,100.00"/>
+        </node>
+        <node name="divide1" position="-1.00,4.00" prototype="math.divide">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="ellipse2" position="7.00,3.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="500.0"/>
+            <port name="height" type="float" value="500.0"/>
+        </node>
+        <node name="frame1" position="9.00,4.00" prototype="core.frame"/>
+        <node name="frame2" position="-1.00,3.00" prototype="core.frame"/>
+        <node name="frame4" position="3.00,2.00" prototype="core.frame"/>
+        <node name="hsb_color1" position="3.00,5.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="255.0"/>
+            <port name="saturation" type="float" value="250.0"/>
+            <port name="brightness" type="float" value="199.0"/>
+        </node>
+        <node name="negate1" position="3.00,3.00" prototype="math.negate"/>
+        <node name="round_segments1" position="-4.00,4.00" prototype="corevector.round_segments">
+            <port name="d" type="float" value="82.0"/>
+        </node>
+        <node name="scale1" position="-4.00,3.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="100.00,110.00"/>
+        </node>
+        <node name="star1" position="-4.00,2.00" prototype="corevector.star">
+            <port name="points" type="int" value="6"/>
+            <port name="outer" type="float" value="640.0"/>
+            <port name="inner" type="float" value="205.0"/>
+        </node>
+        <node name="text_on_path1" position="-3.00,5.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="typography is running "/>
+            <port name="font_size" type="float" value="23.0"/>
+        </node>
+        <node name="text_on_path2" position="7.00,5.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value="typography is running in circle typography is running in circle typography is running in circle typography is running in circle typography is running in circle"/>
+            <port name="font_size" type="float" value="23.0"/>
+        </node>
+        <node name="wave1" position="3.00,4.00" prototype="math.wave">
+            <port name="min" type="float" value="50.0"/>
+            <port name="max" type="float" value="250.0"/>
+            <port name="period" type="float" value="65.0"/>
+        </node>
+        <conn input="text_on_path2.path" output="ellipse2"/>
+        <conn input="copy1.shape" output="text_on_path2"/>
+        <conn input="combine1.list3" output="copy1"/>
+        <conn input="text_on_path2.margin" output="frame1"/>
+        <conn input="text_on_path1.path" output="round_segments1"/>
+        <conn input="divide1.value1" output="frame2"/>
+        <conn input="text_on_path1.margin" output="divide1"/>
+        <conn input="colorize1.shape" output="text_on_path1"/>
+        <conn input="combine1.list1" output="colorize1"/>
+        <conn input="colorize1.fill" output="hsb_color1"/>
+        <conn input="hsb_color1.brightness" output="wave1"/>
+        <conn input="negate1.value" output="frame4"/>
+        <conn input="wave1.offset" output="negate1"/>
+        <conn input="scale1.shape" output="star1"/>
+        <conn input="round_segments1.shape" output="scale1"/>
+    </node>
+</ndbx>

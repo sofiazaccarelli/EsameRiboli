@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="c9354dce-e22d-42f8-a49b-45aa1103d8c8">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine2">
+        <node name="colorize1" position="12.00,0.00" prototype="corevector.colorize"/>
+        <node name="colorize2" position="18.00,1.00" prototype="corevector.colorize"/>
+        <node name="combine1" position="15.00,-1.00" prototype="list.combine"/>
+        <node name="combine2" position="15.00,7.00" prototype="list.combine"/>
+        <node name="combine3" position="21.00,0.00" prototype="list.combine"/>
+        <node name="copy1" position="1.00,-3.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="51"/>
+            <port name="rotate" type="float" value="19.0"/>
+            <port name="scale" type="point" value="130.00,130.00"/>
+        </node>
+        <node name="copy2" position="12.00,-3.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="50"/>
+            <port name="rotate" type="float" value="19.0"/>
+            <port name="scale" type="point" value="130.00,130.00"/>
+        </node>
+        <node name="copy3" position="12.00,5.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="5"/>
+            <port name="rotate" type="float" value="6.0"/>
+        </node>
+        <node name="copy4" position="18.00,5.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="5"/>
+            <port name="rotate" type="float" value="6.0"/>
+        </node>
+        <node name="copy5" position="18.00,-2.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="50"/>
+            <port name="rotate" type="float" value="19.0"/>
+            <port name="scale" type="point" value="130.00,130.00"/>
+        </node>
+        <node name="frame1" position="2.00,-1.00" prototype="core.frame"/>
+        <node name="frame2" position="12.00,1.00" prototype="core.frame"/>
+        <node name="frame3" position="19.00,2.00" prototype="core.frame"/>
+        <node name="hsb_color1" position="15.00,-4.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="75.0"/>
+            <port name="saturation" type="float" value="100.0"/>
+            <port name="brightness" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="155.0"/>
+        </node>
+        <node name="hsb_color2" position="15.00,-2.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="50.0"/>
+            <port name="saturation" type="float" value="100.0"/>
+            <port name="brightness" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="155.0"/>
+        </node>
+        <node name="hsb_color3" position="15.00,-3.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="10.0"/>
+            <port name="saturation" type="float" value="100.0"/>
+            <port name="brightness" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="155.0"/>
+        </node>
+        <node name="hsb_color4" position="15.00,-5.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="30.0"/>
+            <port name="saturation" type="float" value="100.0"/>
+            <port name="brightness" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="155.0"/>
+        </node>
+        <node name="hsb_color5" position="21.00,-3.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="120.0"/>
+            <port name="saturation" type="float" value="100.0"/>
+            <port name="brightness" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="155.0"/>
+        </node>
+        <node name="hsb_color6" position="21.00,-1.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="180.0"/>
+            <port name="saturation" type="float" value="100.0"/>
+            <port name="brightness" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="155.0"/>
+        </node>
+        <node name="hsb_color7" position="21.00,-4.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="140.0"/>
+            <port name="saturation" type="float" value="100.0"/>
+            <port name="brightness" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="155.0"/>
+        </node>
+        <node name="hsb_color8" position="21.00,-2.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="160.0"/>
+            <port name="saturation" type="float" value="100.0"/>
+            <port name="brightness" type="float" value="255.0"/>
+            <port name="alpha" type="float" value="155.0"/>
+        </node>
+        <node name="multiply1" position="12.00,3.00" prototype="math.multiply"/>
+        <node name="number1" position="12.00,2.00" prototype="math.number">
+            <port name="value" type="float" value="-1.0"/>
+        </node>
+        <node name="rect1" position="1.00,-5.00" prototype="corevector.rect">
+            <port name="width" type="float" value="200.0"/>
+            <port name="roundness" type="point" value="50.00,50.00"/>
+        </node>
+        <node name="rect2" position="12.00,-5.00" prototype="corevector.rect">
+            <port name="width" type="float" value="200.0"/>
+            <port name="roundness" type="point" value="50.00,50.00"/>
+        </node>
+        <node name="rect3" position="18.00,-4.00" prototype="corevector.rect">
+            <port name="width" type="float" value="200.0"/>
+            <port name="roundness" type="point" value="50.00,50.00"/>
+        </node>
+        <node name="reflect1" position="1.00,-4.00" prototype="corevector.reflect">
+            <port name="position" type="point" value="350.00,0.00"/>
+            <port name="keep_original" type="boolean" value="false"/>
+        </node>
+        <node name="reflect2" position="12.00,-4.00" prototype="corevector.reflect">
+            <port name="position" type="point" value="350.00,0.00"/>
+            <port name="keep_original" type="boolean" value="false"/>
+        </node>
+        <node name="reflect3" position="18.00,-3.00" prototype="corevector.reflect">
+            <port name="position" type="point" value="350.00,0.00"/>
+            <port name="keep_original" type="boolean" value="false"/>
+        </node>
+        <node name="rotate1" position="12.00,4.00" prototype="corevector.rotate"/>
+        <node name="rotate2" position="18.00,4.00" prototype="corevector.rotate"/>
+        <node name="scale1" position="1.00,-2.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="8.00,8.00"/>
+        </node>
+        <node name="scale2" position="12.00,-2.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="8.00,8.00"/>
+        </node>
+        <node name="scale3" position="18.00,-1.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="10.00,10.00"/>
+        </node>
+        <node name="text_on_path1" position="1.00,0.00" prototype="corevector.text_on_path">
+            <port name="text" type="string" value=" typography is crazy typography is crazy typography is crazy"/>
+            <port name="font_size" type="float" value="22.0"/>
+            <port name="baseline_offset" type="float" value="-22.0"/>
+        </node>
+        <conn input="reflect1.shape" output="rect1"/>
+        <conn input="copy1.shape" output="reflect1"/>
+        <conn input="scale1.shape" output="copy1"/>
+        <conn input="text_on_path1.path" output="scale1"/>
+        <conn input="reflect2.shape" output="rect2"/>
+        <conn input="copy2.shape" output="reflect2"/>
+        <conn input="scale2.shape" output="copy2"/>
+        <conn input="colorize1.shape" output="scale2"/>
+        <conn input="combine1.list1" output="hsb_color1"/>
+        <conn input="combine1.list2" output="hsb_color2"/>
+        <conn input="combine1.list3" output="hsb_color4"/>
+        <conn input="combine1.list4" output="hsb_color3"/>
+        <conn input="colorize1.fill" output="combine1"/>
+        <conn input="rotate1.shape" output="colorize1"/>
+        <conn input="text_on_path1.margin" output="frame1"/>
+        <conn input="multiply1.value1" output="number1"/>
+        <conn input="rotate1.angle" output="multiply1"/>
+        <conn input="multiply1.value2" output="frame2"/>
+        <conn input="copy3.shape" output="rotate1"/>
+        <conn input="combine2.list1" output="copy3"/>
+        <conn input="reflect3.shape" output="rect3"/>
+        <conn input="copy5.shape" output="reflect3"/>
+        <conn input="scale3.shape" output="copy5"/>
+        <conn input="colorize2.shape" output="scale3"/>
+        <conn input="combine3.list2" output="hsb_color5"/>
+        <conn input="combine3.list3" output="hsb_color7"/>
+        <conn input="combine3.list4" output="hsb_color8"/>
+        <conn input="colorize2.fill" output="combine3"/>
+        <conn input="rotate2.shape" output="colorize2"/>
+        <conn input="copy4.shape" output="rotate2"/>
+        <conn input="combine3.list5" output="hsb_color6"/>
+        <conn input="combine2.list2" output="copy4"/>
+        <conn input="rotate2.angle" output="frame3"/>
+    </node>
+</ndbx>

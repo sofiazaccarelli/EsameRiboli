@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="5bf4fe72-20f3-4b5b-8d6f-7039255a323d">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="null1">
+        <node name="compound1" position="2.00,3.00" prototype="corevector.compound"/>
+        <node name="divide1" position="7.00,6.00" prototype="math.divide">
+            <port name="value2" type="float" value="2.0"/>
+        </node>
+        <node name="frame1" position="7.00,5.00" prototype="core.frame"/>
+        <node name="null1" position="2.00,9.00" prototype="corevector.null"/>
+        <node name="pi1" position="7.00,3.00" prototype="math.pi"/>
+        <node name="quad_curve1" position="2.00,7.00" prototype="corevector.quad_curve">
+            <port name="point2" type="point" value="20.00,-40.00"/>
+            <port name="distance" type="float" value="170.0"/>
+        </node>
+        <node name="resample1" position="2.00,4.00" prototype="corevector.resample">
+            <port name="length" type="float" value="15.0"/>
+        </node>
+        <node name="rotate1" position="2.00,8.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="-25.0"/>
+        </node>
+        <node name="star1" position="2.00,1.00" prototype="corevector.star">
+            <port name="position" type="point" value="-150.00,-30.00"/>
+            <port name="points" type="int" value="3"/>
+            <port name="outer" type="float" value="390.0"/>
+            <port name="inner" type="float" value="90.0"/>
+        </node>
+        <node name="star2" position="5.00,1.00" prototype="corevector.star">
+            <port name="position" type="point" value="150.00,30.00"/>
+            <port name="points" type="int" value="3"/>
+            <port name="outer" type="float" value="390.0"/>
+            <port name="inner" type="float" value="90.0"/>
+        </node>
+        <node name="wave1" position="7.00,7.00" prototype="math.wave">
+            <port name="min" type="float" value="-235.0"/>
+            <port name="max" type="float" value="235.0"/>
+            <port name="period" type="float" value="90.0"/>
+        </node>
+        <conn input="compound1.shape1" output="star1"/>
+        <conn input="compound1.shape2" output="star2"/>
+        <conn input="quad_curve1.point1" output="resample1"/>
+        <conn input="resample1.shape" output="compound1"/>
+        <conn input="quad_curve1.t" output="pi1"/>
+        <conn input="quad_curve1.point2" output="pi1"/>
+        <conn input="rotate1.shape" output="quad_curve1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="wave1.offset" output="divide1"/>
+        <conn input="null1.shape" output="rotate1"/>
+    </node>
+</ndbx>
